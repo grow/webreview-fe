@@ -18,14 +18,6 @@ export default DS.Adapter.extend({
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.ajax(jqReq).then(function(data) {
         var key = opt_multi ? self.namespace : self.kind;
-        var resp = data.responseJSON;
-        var data = {};
-        if (data.responseJSON && data.responseJSON[key]) {
-          data[key] = data.responseJSON[key];
-        } else {
-          data[key] = opt_multi ? [] : {};
-        }
-
         Ember.run(null, resolve, data);
       }, function(jqXHR) {
         jqXHR.then = null;
