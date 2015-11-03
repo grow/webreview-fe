@@ -34,7 +34,11 @@ export default DS.Adapter.extend({
           console.log(resp['error_message'])
         }
 
-        Ember.run(null, reject, jqXHR);
+        var errors = {
+          nickname: [resp['error_message']]
+        };
+        var error = new DS.InvalidError({'errors': errors});
+        Ember.run(null, reject, error);
       });
     });
   },

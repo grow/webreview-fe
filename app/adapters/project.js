@@ -13,7 +13,7 @@ export default ApplicationAdapter.extend({
     var project = this.serialize(snapshot);
     // TODO: Dont hardcode me.
     project['owner'] = {
-        'nickname': 'jeremydw',
+       'nickname': 'jeremydw',
        'ident': '5066549580791808'
     };
     return this._request('projects.create', project);

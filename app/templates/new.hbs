@@ -21,6 +21,11 @@
       <button type="submit" class="btn btn--primary">Create</button>
     </div>
 
+    {{model.errors}}
+    {{#each error in model.errors}}
+      <li>{{error}}</li>
+    {{/each}}
+
   </form>
 
 </div>
