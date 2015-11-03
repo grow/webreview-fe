@@ -1,7 +1,7 @@
 <div class="box">
   <h1>Create project</h1>
 
-  <form class="form">
+  <form class="form" {{action "createProject" on="submit"}}>
     <div class="form-field">
       <label>Owner</label>
       <input type="text" class="form-control" autofocus>
@@ -9,12 +9,12 @@
 
     <div class="form-field">
       <label>Name</label>
-      <input type="text" class="form-control">
+      {{input type="text" value=nickname class="form-control"}}
     </div>
 
     <div class="form-field">
       <label>Description</label>
-      <textarea class="form-control"></textarea>
+      <textarea class="form-control" value=description></textarea>
     </div>
 
     <div class="form-field">

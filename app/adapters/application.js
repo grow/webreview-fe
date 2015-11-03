@@ -1,11 +1,12 @@
 import DS from 'ember-data';
 
 export default DS.Adapter.extend({
-  _request: function(method, body) {
+  primaryKey: 'ident',
+  _request: function(method, body, opt_multi) {
     var self = this;
     var req = {};
     req[this.kind] = body;
-    var url = '/_api/' + this.namespace + '.' + method;
+    var url = '/_api/' + method;
     var jqReq = {
       type: 'POST',
       url: url,
@@ -16,13 +17,23 @@ export default DS.Adapter.extend({
 
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.ajax(jqReq).then(function(data) {
+        var key = opt_multi ? self.namespace : self.kind;
+        var resp = data.responseJSON;
         var data = {};
-        data[self.kind] = data.responseJSON[self.kind];
+        if (data.responseJSON && data.responseJSON[key]) {
+          data[key] = data.responseJSON[key];
+        } else {
+          data[key] = opt_multi ? [] : {};
+        }
+
         Ember.run(null, resolve, data);
       }, function(jqXHR) {
         jqXHR.then = null;
         var resp = jqXHR.responseJSON;
-        console.log(resp['error_message'])
+        if (resp) {
+          console.log(resp['error_message'])
+        }
+
         Ember.run(null, reject, jqXHR);
       });
     });
@@ -30,6 +41,6 @@ export default DS.Adapter.extend({
 
   findRecord: function(store, type, id, snapshot) {
     var body = {'nickname': id};
-    return this._request('get', body);
+    return this._request('owners.get', body);
   }
 });
