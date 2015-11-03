@@ -1,5 +1,11 @@
-top
-
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div class="header">
+  <div class="header-main">
+    <div class="header-logo">Web Review</div>
+  </div>
+  <div class="header-aux">
+  {{#link-to 'new' }}New{{/link-to}}
+  </div>
+</div>
+<div class="body">
+  {{outlet}}
+</div>

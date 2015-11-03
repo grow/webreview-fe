@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="container-sidebar">
+    <div class="container-box container-box--nav">
+      <ul class="container-nav">
+        <li>{{#link-to 'owner.project.builds' owner.name project.name}}Builds{{/link-to}}</li>
+        <li><a href="#">Translations</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container-main">
+    <div class="container-box container-box--main">
+      {{outlet}}
+    </div>
+  </div>
+</div>

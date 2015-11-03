@@ -6,8 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('org', {path: '/:org_name'}, function() {
-    this.resource('project', {path: '/:project_name'}, function() {
+  this.resource('index', {path: '/'});
+  this.resource('new', {path: '/new'});
+  this.resource('owner', {path: '/:owner_nickname'}, function() {
+    this.resource('project', {path: '/:project_nickname'}, function() {
+      this.route('builds', {path: '/builds'});
+      this.route('translations', {path: '/translations'});
+      this.route('settings', {path: '/settings'});
       this.route('team', {path: '/team'});
     });
   });
