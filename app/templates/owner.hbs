@@ -1,4 +1,4 @@
 <div class="box">
-  <h1>{{model.owner.nickname}}</h1>
+  <h1>{{#link-to "owner" model.owner.nickname}}{{model.owner.nickname}}{{/link-to}}</h1>
   {{outlet}}
 </div>
