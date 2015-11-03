@@ -30,14 +30,10 @@ export default DS.Adapter.extend({
       }, function(jqXHR) {
         jqXHR.then = null;
         var resp = jqXHR.responseJSON;
-        if (resp) {
-          console.log(resp['error_message'])
-        }
-
-        var errors = {
-          nickname: [resp['error_message']]
-        };
-        var error = new DS.InvalidError({'errors': errors});
+        var errors = [{
+          'detail': resp['error_message']
+        }];
+        var error = new DS.InvalidError(errors);
         Ember.run(null, reject, error);
       });
     });
