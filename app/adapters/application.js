@@ -30,9 +30,4 @@ export default DS.Adapter.extend({
       });
     });
   },
-
-  findRecord: function(store, type, id, snapshot) {
-    var body = {'nickname': id};
-    return this._request('owners.get', body);
-  }
 });
