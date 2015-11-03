@@ -1,0 +1,12 @@
+<form class="form" {{action "createOrg" on="submit"}}>
+  <div class="form-field">
+    <label>Name</label>
+    {{input type="text" value=org.nickname class="form-control" autofocus="true"}}
+  </div>
+  <div class="form-field">
+    <button type="submit" class="btn btn--primary">Create</button>
+  </div>
+  {{#each error in errors}}
+    <p>{{error.detail}}</p>
+  {{/each}}
+</form>
