@@ -8,7 +8,7 @@ export default ApplicationAdapter.extend({
     return this._request('orgs.create', org);
   },
   findRecord: function(store, type, id, snapshot) {
-    var body = {'nickname': id};
+    var body = {'org': {'nickname': id}};
     return this._request('orgs.get', body);
   },
 });

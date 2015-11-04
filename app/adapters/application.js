@@ -3,10 +3,8 @@ import DS from 'ember-data';
 
 export default DS.Adapter.extend({
   primaryKey: 'ident',
-  _request: function(method, body, opt_multi) {
+  _request: function(method, req, opt_multi) {
     var self = this;
-    var req = {};
-    req[this.kind] = body;
     var url = '/_api/' + method;
     var jqReq = {
       type: 'POST',

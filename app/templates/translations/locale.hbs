@@ -1,5 +1,5 @@
 <h1>Translations ({{model.locale}})</h1>
 
-{{#each translation in model.translations}}
+{{#each model.translations as |translation|}}
   {{translation-row translation=translation}}
 {{/each}}

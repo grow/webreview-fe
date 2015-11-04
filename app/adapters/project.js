@@ -14,14 +14,17 @@ export default ApplicationAdapter.extend({
        'nickname': 'jeremydw',
        'ident': '5066549580791808'
     };
+    project = {'project': project};
     return this._request('projects.create', project);
   },
   findRecord: function(store, type, id, snapshot) {
     var ownerNickname = id.split('/')[0];
     var projectNickname = id.split('/')[1];
     var body = {
-      'nickname': projectNickname,
-      'owner': {'nickname': ownerNickname},
+        'project': {
+            'nickname': projectNickname,
+            'owner': {'nickname': ownerNickname},
+        }
     };
     return this._request('projects.get', body);
   },

@@ -1,6 +1,6 @@
 <h1>Translations</h1>
 
-{{#each catalog in model.catalogs}}
-  {{catalog-link project=model catalog=catalog catalogSelected="catalogSelected"}}
+{{#each model.catalogs as |catalog|}}
+  {{catalog-link project=model.project catalog=catalog catalogSelected="catalogSelected"}}
 {{/each}}
 
