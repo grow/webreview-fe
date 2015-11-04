@@ -5,4 +5,5 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   ident: DS.attr('string'),
   owner: DS.belongsTo('owner'),
+  catalogs: DS.hasMany('catalog'),
 });

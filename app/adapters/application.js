@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Adapter.extend({
@@ -12,7 +13,7 @@ export default DS.Adapter.extend({
       url: url,
       contentType: 'application/json',
       dataType: 'json',
-      data: JSON.stringify(req) 
+      data: JSON.stringify(req)
     };
 
     return new Ember.RSVP.Promise(function(resolve, reject) {

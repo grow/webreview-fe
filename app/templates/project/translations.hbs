@@ -1,1 +1,8 @@
-Translations
+<h1>Translations</h1>
+
+{{#each catalog in model.catalogs}}
+  <h2>{{catalog.locale}}</h2>
+  {{#each translation in catalog.translations}}
+    {{translation-row translation=translation}}
+  {{/each}}
+{{/each}}

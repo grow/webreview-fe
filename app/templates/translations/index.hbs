@@ -1,0 +1,8 @@
+<h1>Translations</h1>
+
+<ul>
+  {{#each catalog in model.catalogs}}
+    <li>{{#link-to 'translations.locale' model.owner.nickname model.nickname catalog}}{{catalog.locale}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+
