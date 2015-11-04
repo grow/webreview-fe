@@ -9,9 +9,13 @@ Router.map(function() {
   this.resource('home', {path: '/'});
   this.resource('new', {path: '/new'});
   this.resource('new-org', {path: '/new/org'});
+  this.resource('settings', {path: '/settings'}, function() {
+    this.route('org', {path: '/org/:org_nickname'});
+  });
   this.resource('owner', {path: '/:owner_nickname'}, function() {
     this.resource('project', {path: '/:project_nickname'}, function() {
       this.route('builds', {path: '/builds'});
+      this.route('content', {path: '/content'});
       this.route('translations', {path: '/translations'});
       this.route('settings', {path: '/settings'});
       this.route('team', {path: '/team'});
