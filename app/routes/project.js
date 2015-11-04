@@ -16,5 +16,10 @@ export default Ember.Route.extend({
     });
 
     return promise;
-  }
+  },
+  actions: {
+    catalogSelected: function(project, catalog) {
+      this.transitionTo('translations.locale', project.owner.nickname, project.nicname, catalog);
+    },
+  },
 });
