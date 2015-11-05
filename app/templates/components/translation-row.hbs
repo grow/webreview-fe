@@ -1,8 +1,8 @@
 <div class="grid-2">
   <div class="item">
-    {{input type="text" value=translation.msgid class="form-control"}}
+    {{textarea value=translation.msgid class="form-control form-control--max" readonly="readonly"}}
   </div>
-  <div class="item">
-    {{input type="text" value=translation.string class="form-control"}}
+  <div class="item {{unless translation.string 'item--empty'}}">
+    {{textarea value=translation.string class="form-control form-control--max"}}
   </div>
 </div>
