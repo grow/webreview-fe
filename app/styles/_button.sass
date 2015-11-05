@@ -1,11 +1,20 @@
 .btn
   background: #efefef
-  border: 0
+  border: 1px solid $color-border
+  border-radius: 1px
+  color: $color-gray
+  cursor: pointer
+  display: inline-block
   font-family: $font-family
   font-size: $font-size
   font-weight: 500
   padding: 7px 10px
+  transition: all 100ms ease
 
   &--primary
     background: $color-link
+    border: 1px solid $color-link-dark
     color: $color-white
+
+  &:hover
+    box-shadow: $box-shadow-button
