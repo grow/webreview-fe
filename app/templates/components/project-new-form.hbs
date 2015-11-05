@@ -10,6 +10,14 @@
   </div>
 
   <div class="form-field">
+    <label>Repository URL</label>
+    {{input type="text" value=project.git_url class="form-control"}}
+    <div class="form-field-help">
+      Enter the URL to this project's Git repository to enable build integrations.
+    </div>
+  </div>
+
+  <div class="form-field">
     <label>Description</label>
     <textarea class="form-control" value=description></textarea>
   </div>

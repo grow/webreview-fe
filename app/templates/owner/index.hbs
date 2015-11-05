@@ -1,7 +1,9 @@
-<table>
-  {{#each project in model.projects}}
-    <tr>
-      <td>{{#link-to 'project.builds' project.owner.nickname project.nickname}}{{project.nickname}}{{/link-to}}</td>
-    </tr>
-  {{/each}}
-</table>
+<div class="box">
+  <table>
+    {{#each project in model.projects}}
+      <tr>
+        <td>{{#link-to 'project.builds' project.owner.nickname project.nickname}}{{project.nickname}}{{/link-to}}</td>
+      </tr>
+    {{/each}}
+  </table>
+</div>

@@ -3,6 +3,6 @@
     {{textarea value=translation.msgid class="form-control form-control--max" readonly="readonly"}}
   </div>
   <div class="item {{unless translation.string 'item--empty'}}">
-    {{textarea value=translation.string class="form-control form-control--max"}}
+    {{textarea value=translation.string class="form-control form-control--max" focus-out="focusOut"}}
   </div>
 </div>

@@ -1,8 +1,13 @@
-<form class="form" {{action "createMembership" on="submit"}}>
+<form class="form" {{action "updateUser" on="submit"}}>
 
   <div class="form-field">
     <label>Username</label>
     {{input type="text" value=user.nickname class="form-control" autofocus="true"}}
+  </div>
+
+  <div class="form-field">
+    <label>Location</label>
+    {{input type="text" value=user.location class="form-control"}}
   </div>
 
   <div class="form-field">

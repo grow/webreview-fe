@@ -6,7 +6,10 @@ export default Ember.Route.extend({
   },
   actions: {
     projectCreated: function(project) {
-      this.transitionTo('project.builds', project.get('owner.nickname'), project.get('nickname'));
-    }
-  }
+      this.transitionTo(
+          'project.builds',
+          project.get('owner.nickname'),
+          project.get('nickname'));
+    },
+  },
 });

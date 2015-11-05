@@ -2,13 +2,19 @@
   width: 100%
 
   &-sidebar
-    width: 260px
+    background: #fafafa
     float: left
+    font-size: $font-size-sm
+    font-weight: bold
+    width: 260px
 
   &-main
     position: absolute
-    right: 15px
-    left: 289px
+    right: 5px;
+    left: 265px;
+
+    h2
+      font-size: 22px
 
   &-nav
     margin: 0
@@ -16,6 +22,7 @@
     list-style: none
 
     a
+      color: $color-gray
       display: block
       padding: 8px 15px
 
@@ -23,10 +30,10 @@
         background-color: #efefef
 
   &-box
-    border: 1px solid #ddd
     background: #fff
+    border: 1px solid #ddd
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.05)
     padding: 5px
-    margin: 4px 5px
 
     &--nav
       padding-right: 0
@@ -34,4 +41,4 @@
       margin-left: 4px
 
     &--main
-      padding: 30px
+      padding: 20px
