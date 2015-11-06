@@ -1,9 +1,10 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  nickname: DS.attr('string'),
+  avatar_url: DS.attr('string'),
+  catalogs: DS.hasMany('catalog'),
   description: DS.attr('string'),
   ident: DS.attr('string'),
+  nickname: DS.attr('string'),
   owner: DS.belongsTo('owner'),
-  catalogs: DS.hasMany('catalog'),
 });

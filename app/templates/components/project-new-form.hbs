@@ -1,7 +1,7 @@
 <form class="form" {{action "createProject" on="submit"}}>
   <div class="form-field">
     <label>Owner</label>
-    <input type="text" class="form-control" autofocus>
+    {{input type="text" value=project.owner.nickname class="form-control" autofocus="true"}}
   </div>
 
   <div class="form-field">

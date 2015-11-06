@@ -4,28 +4,23 @@ export default ApplicationAdapter.extend({
   kind: 'project',
   namespace: 'projects',
   findAll: function() {
-    var body = {};
-    return this._request('me.search_projects', body, true);
+    var req = {};
+    return this._request('me.search_projects', req, true);
   },
   createRecord: function(store, type, snapshot) {
     var project = this.serialize(snapshot);
-    // TODO: Dont hardcode me.
-    project['owner'] = {
-       'nickname': 'jeremydw',
-       'ident': '5066549580791808'
-    };
-    project = {'project': project};
-    return this._request('projects.create', project);
+    var req = {'project': project};
+    return this._request('projects.create', req);
   },
   findRecord: function(store, type, id, snapshot) {
     var ownerNickname = id.split('/')[0];
     var projectNickname = id.split('/')[1];
-    var body = {
+    var req = {
         'project': {
             'nickname': projectNickname,
             'owner': {'nickname': ownerNickname},
         }
     };
-    return this._request('projects.get', body);
+    return this._request('projects.get', req);
   },
 });
