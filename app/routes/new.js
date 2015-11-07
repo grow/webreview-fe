@@ -2,7 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.createRecord('project');
+    var me = this.store.findRecord('user', 'me');
+    console.log(me.get('nickname'));
+    var query = {'user': {'nickname': 'jeremydw575'}};
+    return Ember.RSVP.hash({
+      me: me,
+      project: this.store.createRecord('project'),
+      owners: this.store.query('org', query),
+    });
   },
   actions: {
     projectCreated: function(project) {

@@ -11,4 +11,7 @@ export default ApplicationAdapter.extend({
     var body = {'org': {'nickname': id}};
     return this._request('orgs.get', body);
   },
+  query: function(something, type, options) {
+    return this._request('users.search_orgs', options, true);
+  },
 });

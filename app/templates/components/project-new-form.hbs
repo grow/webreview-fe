@@ -2,6 +2,7 @@
   <div class="form-field">
     <label>Owner</label>
     {{input type="text" value=project.owner.nickname class="form-control" autofocus="true"}}
+    {{owner-select owners=owners me=me}}
   </div>
 
   <div class="form-field">
@@ -11,7 +12,7 @@
 
   <div class="form-field">
     <label>Repository URL</label>
-    {{input type="text" value=project.git_url class="form-control"}}
+    {{input type="text" value=project.git_url class="form-control" placeholder="https://example.com/project.git"}}
     <div class="form-field-help">
       Enter the URL to this project's Git repository to enable build integrations.
     </div>

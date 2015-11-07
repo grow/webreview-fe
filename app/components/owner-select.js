@@ -1,12 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  project: null,
-
+  owners: null,
   actions: {
-    createProject: function() {
+    selectOwner: function() {
       var project = this.get('project');
-      var owner = this.store.findRecord('user', 'me');
       project.set('owner', owner);
       project.save().then(function() {
         this.sendAction('projectCreated', project);
@@ -16,3 +14,4 @@ export default Ember.Component.extend({
     },
   },
 });
+

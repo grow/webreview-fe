@@ -1,11 +1,10 @@
 <div class="header box">
   <div class="header-main">
-    {{#link-to 'home' class="header-main-logo"}}<img src="/assets/logo_default.png">Web Review{{/link-to}}
+    {{#link-to 'home' class="header-main-logo"}}<img class="header-avatar" src="/assets/logo_default.png">Web Review{{/link-to}}
   </div>
   <div class="header-aux">
     {{#link-to "new" class="btn"}}New{{/link-to}}
-    {{#link-to "settings" class="btn"}}Settings{{/link-to}}
-    {{me-button}}
+    {{me-button class="header-inline" user=model.me}}
   </div>
 </div>
 <div class="body">
