@@ -2,11 +2,6 @@
   <h1>Your projects</h1>
 </div>
 <div class="box">
-  <table>
-    {{#each project in model}}
-      <tr>
-        <td>{{#link-to 'project' project.owner.nickname project.nickname}}{{project.nickname}}{{/link-to}}</td>
-      </tr>
-    {{/each}}
-  </table>
+  {{project-table
+      projects=model}}
 </div>

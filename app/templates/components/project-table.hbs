@@ -1,0 +1,9 @@
+<table class="table">
+  {{#each project in projects}}
+    {{# if project.nickname}}
+      <tr>
+        <td>{{#link-to 'project' project.owner.nickname project.nickname}}{{project.nickname}}{{/link-to}}</td>
+      </tr>
+    {{/if}}
+  {{/each}}
+</table>

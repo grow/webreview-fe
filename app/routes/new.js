@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  titleToken: 'New site',
   model: function() {
     var me = this.store.findRecord('user', 'me');
     console.log(me.get('nickname'));
