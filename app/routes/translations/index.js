@@ -7,17 +7,29 @@ export default Ember.Route.extend({
     var projectRouteModel = this.modelFor('project');
     var projectNickname = projectRouteModel.get('nickname');
     var projectName = ownerNickname + '/' + projectNickname;
-    var project = {
+    var projectObj = {
       'project': {
         'nickname': projectNickname,
         'owner': {'nickname': ownerNickname},
       },
     };
+
+    var project = this.store.findRecord('project', projectName);
+    project.then(function() {}, function(errors) {
+      this.set('errors', errors.errors);
+    }.bind(this));
+
+    var catalogs = this.store.query('catalog', projectObj);
+    catalogs.then(function() {}, function(errors) {
+      this.set('errors', errors.errors);
+    }.bind(this));
+
     return Ember.RSVP.hash({
-      project: this.store.findRecord('project', projectName),
-      catalogs: this.store.query('catalog', project),
+      project: project,
+      catalogs: catalogs,
     });
   },
+
   actions: {
     catalogSelected: function(project, catalog) {
       this.transitionTo(

@@ -4,7 +4,6 @@ export default Ember.Route.extend({
   titleToken: 'New site',
   model: function() {
     var me = this.store.findRecord('user', 'me');
-    console.log(me.get('nickname'));
     var query = {'user': {'nickname': 'jeremydw575'}};
     return Ember.RSVP.hash({
       me: me,

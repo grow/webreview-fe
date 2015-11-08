@@ -3,6 +3,7 @@ import ApplicationAdapter from './application';
 export default ApplicationAdapter.extend({
   kind: 'catalog',
   namespace: 'catalogs',
+
   findRecord: function(store, type, id, snapshot) {
     var ownerNickname = id.split('/')[0];
     var projectNickname = id.split('/')[1];

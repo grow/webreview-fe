@@ -1,0 +1,7 @@
+{{#if errors}}
+  <div class="error-list">
+  {{#each error in errors}}
+    <div class="error-list-error">{{error.detail}}</div>
+  {{/each}}
+  </div>
+{{/if}}

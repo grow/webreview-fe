@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   titleToken: function(model) {
     return model.get('nickname');
   },
-  model: function(params, transition) {
+  model: function(params) {
     var ownerRouteModel = this.modelFor('owner');
     var ownerNickname = ownerRouteModel.owner.get('nickname');
     var projectName = ownerNickname + '/' + params['project_nickname'];

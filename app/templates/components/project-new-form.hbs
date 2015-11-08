@@ -38,8 +38,7 @@
     <button type="submit" class="btn btn--primary">Create</button>
   </div>
 
-  {{#each error in errors}}
-    <p>{{error.detail}}</p>
-  {{/each}}
+  {{error-list
+    errors=errors}}
 
 </form>

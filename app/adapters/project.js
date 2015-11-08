@@ -23,4 +23,9 @@ export default ApplicationAdapter.extend({
     };
     return this._request('projects.get', req);
   },
+  updateRecord: function(store, type, snapshot) {
+    var project = this.serialize(snapshot);
+    var req = {'project': project};
+    return this._request('projects.update', req);
+  },
 });
