@@ -4,8 +4,6 @@ export default ApplicationAdapter.extend({
   kind: 'team',
   namespace: 'teams',
   createRecord: function(store, type, snapshot) {
-    console.log('snapshot');
-    console.log(snapshot);
     var team = this.serialize(snapshot);
     var req = {'team': team};
     return this._request('teams.create_membership', req);
