@@ -1,8 +1,20 @@
 <div class="grid-2">
   <div class="item">
-    {{textarea value=translation.msgid class="form-control form-control--max" readonly="readonly"}}
+    {{textarea
+        value=translation.msgid
+        class="form-control form-control--max"
+        readonly="readonly"}}
   </div>
   <div class="item {{unless translation.string 'item--empty'}}">
-    {{textarea value=translation.string class="form-control form-control--max" focus-out="focusOut"}}
+    {{textarea
+        value=translation.string
+        class="form-control form-control--max"
+        focus-out="focusOut"}}
+    {{#if translation.isDirty}}
+      <div class="form-field">
+        <button class="btn btn--sm btn--primary" type="button">Save</button>
+        <button class="btn btn--sm " type="button">Cancel</button>
+      </div>
+    {{/if}}
   </div>
 </div>
