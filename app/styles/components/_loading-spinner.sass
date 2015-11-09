@@ -1,0 +1,42 @@
+.loading-spinner
+  display: inline-block
+
+  .loading-spinner-inner
+    width: 35px
+    height: 35px
+    position: relative
+    margin: 0 auto
+
+  .loading-spinner-inner-1,
+  .loading-spinner-inner-2
+    -webkit-animation: spinner-bounce 2.0s infinite ease-in-out
+    animation: spinner-bounce 2.0s infinite ease-in-out
+    background-color: $color-gray
+    border-radius: 50%
+    height: 100%
+    left: 0
+    opacity: 0.6
+    position: absolute
+    top: 0
+    width: 100%
+
+  .loading-spinner-inner-2
+    -webkit-animation-delay: -1.0s
+    animation-delay: -1.0s
+
+  @-webkit-keyframes spinner-bounce
+    0%,
+    100%
+      -webkit-transform: scale(0.0) 
+    50%
+      -webkit-transform: scale(1.0) 
+
+  @keyframes spinner-bounce
+    0%,
+    100%
+      transform: scale(0.0)
+      -webkit-transform: scale(0.0)
+
+    50% 
+      transform: scale(1.0)
+      -webkit-transform: scale(1.0)
