@@ -12,6 +12,7 @@ export default Ember.Component.extend({
 
       var membership = this.get('membership');
       membership.set('user', user);
+      console.log(membership);
       return;
 
       membership.save().then(function() {

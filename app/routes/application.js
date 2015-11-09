@@ -14,12 +14,12 @@ export default Ember.Route.extend({
       me: this.store.findRecord('user', 'me'),
     });
   },
+
   /*
   actions: {
     error: function(error, transition) {
       console.log('encountered error');
       console.log(error);
-      return true;
     },
   },
   */

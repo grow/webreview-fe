@@ -15,9 +15,6 @@ export default Ember.Route.extend({
     };
     var project = this.store.findRecord('project', projectName);
     var catalogs = this.store.query('catalog', projectObj);
-    catalogs.then(function() {}, function(errors) {
-      this.set('errors', errors.errors);
-    }.bind(this));
     return Ember.RSVP.hash({
       errors: null,
       project: project,
@@ -26,6 +23,11 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    error: function(error, transition) {
+      this.set('model.errors', error.errors);
+      return true;
+    },
+
     catalogSelected: function(project, catalog) {
       this.transitionTo(
           'translations.locale',
@@ -36,7 +38,6 @@ export default Ember.Route.extend({
     },
 
     loading: function(transition, originRoute) {
-      console.log('loading');
       return true;
     },
   },

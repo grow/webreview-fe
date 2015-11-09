@@ -7,4 +7,5 @@ export default DS.Model.extend({
   status: DS.attr('string'),
   modified: DS.attr('string'),
   finalized: DS.attr('boolean'),
+  commit: DS.belongsTo('commit'),
 });

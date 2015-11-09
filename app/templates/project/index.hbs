@@ -1,1 +1,23 @@
-new project builds
+<table class="table">
+  <thead>
+    <tr>
+      <td style="width: 80px">Commit</td>
+      <td>Message</td>
+      <td style="width: 150px">Updated</td>
+    </tr>
+  </thead>
+  {{#each model.filesets as |fileset|}}
+    <tr>
+      <td>
+        <div>{{fileset.commit.sha}}</div>
+        <div>{{fileset.commit.branch}}</div>
+      </td>
+      <td>
+        {{fileset.commit.message}}
+      </td>
+      <td>
+        <a href="{{fileset.url}}">View</a>
+      </td>
+    </tr>
+  {{/each}}
+</table>
