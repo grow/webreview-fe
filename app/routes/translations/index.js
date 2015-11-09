@@ -34,5 +34,10 @@ export default Ember.Route.extend({
           catalog.get('locale'),
       );
     },
+
+    loading: function(transition, originRoute) {
+      console.log('loading');
+      return true;
+    },
   },
 });

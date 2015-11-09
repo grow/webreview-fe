@@ -2,7 +2,10 @@
   {{#each project in projects}}
     {{# if project.nickname}}
       <tr>
-        <td>{{#link-to 'project' project.owner.nickname project.nickname}}{{project.nickname}}{{/link-to}}</td>
+        <td>
+          {{#link-to 'project' project.owner.nickname project.nickname}}<img src="{{project.avatar_url}}" class="avatar avatar--xs">{{/link-to}}
+          {{#link-to 'project' project.owner.nickname project.nickname}}{{project.nickname}}{{/link-to}}
+        </td>
       </tr>
     {{/if}}
   {{/each}}

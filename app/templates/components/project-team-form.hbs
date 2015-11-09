@@ -23,6 +23,7 @@
   {{#each team.memberships as |membership|}}
     <tr>
       <td>
+        <img src="{{membership.user.avatar_url}}" class="avatar avatar--xs">
         {{membership.user.nickname}}
       </td>
       <td>
