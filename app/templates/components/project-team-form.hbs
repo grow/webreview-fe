@@ -1,29 +1,33 @@
 <form class="form" {{action "createMembership" on="submit"}}>
-
-  <table class="table margin--bottom">
-    <thead>
-      <tr>
-        <td>Person</td>
-        <td>Role</td>
-      </tr>
-    </thead>
-    {{#each team.memberships as |membership|}}
-      <tr>
-        <td>
-          {{membership.user.nickname}}
-        </td>
-        <td>
-          {{membership.role}}
-        </td>
-      </tr>
-    {{/each}}
-  </table>
-
-  <div class="form-field">
+  <div class="form-field form-field--inline">
+    {{input
+        type="text"
+        placeholder="Enter username or email"
+        value=newMemberIdentifier
+        class="form-control"
+        autofocus="true"}}
+  </div>
+  <div class="form-field form-field--inline">
     <button type="submit" class="btn btn--primary">Add member</button>
   </div>
-
-  {{#each error in errors}}
-    <p>{{error.detail}}</p>
-  {{/each}}
+  {{error-list errors=errors}}
 </form>
+
+<table class="table margin--bottom">
+  <thead>
+    <tr>
+      <td>Person</td>
+      <td>Role</td>
+    </tr>
+  </thead>
+  {{#each team.memberships as |membership|}}
+    <tr>
+      <td>
+        {{membership.user.nickname}}
+      </td>
+      <td>
+        {{membership.role}}
+      </td>
+    </tr>
+  {{/each}}
+</table>

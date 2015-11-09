@@ -2,8 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   project: null,
-  store: Ember.inject.service(),
-
   actions: {
     updateProject: function() {
       var project = this.get('project');
