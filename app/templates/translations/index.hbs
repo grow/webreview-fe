@@ -3,7 +3,8 @@
 <table class="table">
   <thead>
     <tr>
-      <td>Locale</td>
+      <td>Identifier</td>
+      <td>Name</td>
       <td>% translated</td>
       <td>Last modified</td>
     </tr>
@@ -11,7 +12,10 @@
   {{#each model.catalogs as |catalog|}}
     <tr>
       <td>
-        {{#link-to 'translations.locale' model.project.owner.nickname model.project.nickname catalog.locale}}{{catalog.locale}}{{/link-to}}
+        {{catalog.locale}}
+      </td>
+      <td>
+        {{#link-to 'translations.locale' model.project.owner.nickname model.project.nickname catalog.locale}}{{catalog.name}}{{/link-to}}
       </td>
       <td>
         {{catalog.percent_translated}}
