@@ -1,10 +1,10 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  nickname: DS.attr('string'),
-  description: DS.attr('string'),
   ident: DS.attr('string'),
-  projects: DS.hasMany('project'),
-  memberships: DS.hasMany('team-membership'),
+  role: DS.attr('string'),
   owner: DS.belongsTo('owner'),
+  projects: DS.hasMany('project'),
+  kind: DS.attr('string'),
+  memberships: DS.hasMany('membership'),
 });

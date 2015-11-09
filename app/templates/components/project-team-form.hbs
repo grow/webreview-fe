@@ -1,19 +1,23 @@
 <form class="form" {{action "createMembership" on="submit"}}>
 
-  <div class="form-field">
-    <label>Name</label>
-    {{input type="text" value=project.nickname class="form-control" autofocus="true"}}
-  </div>
-
-  <div class="form-field">
-    <label>Description</label>
-    {{textarea value=project.description class="form-control"}}
-  </div>
-
-  <div class="form-field">
-    <label>Repository URL</label>
-    {{input type="text" value=org.nickname class="form-control"}}
-  </div>
+  <table class="table margin--bottom">
+    <thead>
+      <tr>
+        <td>Person</td>
+        <td>Role</td>
+      </tr>
+    </thead>
+    {{#each team.memberships as |membership|}}
+      <tr>
+        <td>
+          {{membership.user.nickname}}
+        </td>
+        <td>
+          {{membership.role}}
+        </td>
+      </tr>
+    {{/each}}
+  </table>
 
   <div class="form-field">
     <button type="submit" class="btn btn--primary">Add member</button>

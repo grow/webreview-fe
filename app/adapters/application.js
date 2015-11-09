@@ -3,7 +3,7 @@ import DS from 'ember-data';
 
 export default DS.Adapter.extend({
   primaryKey: 'ident',
-  _request: function(method, req, opt_multi) {
+  _request: function(method, req) {
     var self = this;
     var url = '/_api/' + method;
     var jqReq = {
@@ -16,7 +16,6 @@ export default DS.Adapter.extend({
 
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.ajax(jqReq).then(function(data) {
-        var key = opt_multi ? self.namespace : self.kind;
         Ember.run(null, resolve, data);
       }, function(jqXHR) {
         jqXHR.then = null;

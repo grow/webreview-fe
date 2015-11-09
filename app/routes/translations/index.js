@@ -13,18 +13,13 @@ export default Ember.Route.extend({
         'owner': {'nickname': ownerNickname},
       },
     };
-
     var project = this.store.findRecord('project', projectName);
-    project.then(function() {}, function(errors) {
-      this.set('errors', errors.errors);
-    }.bind(this));
-
     var catalogs = this.store.query('catalog', projectObj);
     catalogs.then(function() {}, function(errors) {
       this.set('errors', errors.errors);
     }.bind(this));
-
     return Ember.RSVP.hash({
+      errors: null,
       project: project,
       catalogs: catalogs,
     });

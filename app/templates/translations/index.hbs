@@ -1,6 +1,27 @@
-<h1>Translations</h1>
+<h2>Translations</h2>
 
-{{#each model.catalogs as |catalog|}}
-  {{catalog-link project=model.project catalog=catalog catalogSelected="catalogSelected"}}
-{{/each}}
+<table class="table">
+  <thead>
+    <tr>
+      <td>Locale</td>
+      <td>% translated</td>
+      <td>Last modified</td>
+    </tr>
+  </thead>
+  {{#each model.catalogs as |catalog|}}
+    <tr>
+      <td>
+        {{#link-to 'translations.locale' model.project.owner.nickname model.project.nickname catalog.locale}}{{catalog.locale}}{{/link-to}}
+      </td>
+      <td>
+        {{catalog.percent_translated}}
+      </td>
+      <td>
+        {{catalog.modified}}
+      </td>
+    </tr>
+  {{/each}}
+</table>
 
+{{error-list
+    errors=model.errors}}

@@ -20,7 +20,7 @@ export default ApplicationAdapter.extend({
     return this._request('projects.get_catalog', body);
   },
   query: function(something, type, options) {
-    return this._request('projects.list_catalogs', options, true);
+    return this._request('projects.list_catalogs', options);
   },
 });
 
