@@ -3,7 +3,7 @@ import DS from 'ember-data';
 
 export default ApplicationSerializer.extend(DS.EmbeddedRecordsMixin, {
   normalizeId: function(hash) {
-    hash.id = hash['msgid'] || '__header';
+    hash.id = hash['ident'] || '__header';
     return hash;
   },
 });

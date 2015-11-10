@@ -5,7 +5,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   url: DS.attr('string'),
   status: DS.attr('string'),
-  modified: DS.attr('string'),
+  modified: DS.attr('date'),
   finalized: DS.attr('boolean'),
   commit: DS.belongsTo('commit'),
 });

@@ -3,21 +3,24 @@
     <thead>
       <tr>
         <td style="width: 80px">Commit</td>
-        <td>Message</td>
-        <td style="width: 150px">Updated</td>
+        <td style="width: 80px">Branch</td>
+        <td></td>
+        <td style="width: 250px">Updated</td>
       </tr>
     </thead>
     {{#each model.filesets as |fileset|}}
       <tr>
         <td>
-          <div>{{fileset.commit.sha}}</div>
-          <div>{{fileset.commit.branch}}</div>
+          <div><a href="{{fileset.url}}">{{fileset.commit.sha_short}}</a></div>
         </td>
         <td>
-          {{fileset.commit.message}}
+          {{fileset.commit.branch}}
         </td>
         <td>
-          <a href="{{fileset.url}}">View</a>
+          <div class="text--meta">{{fileset.commit.message}}</div>
+        </td>
+        <td>
+          {{fileset.modified}}
         </td>
       </tr>
     {{/each}}

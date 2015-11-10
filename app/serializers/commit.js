@@ -8,5 +8,6 @@ export default ApplicationSerializer.extend(DS.EmbeddedRecordsMixin, {
   },
   attrs: {
     author: {embedded: 'always'},
+    branch: {embedded: 'always'},
   },
 });

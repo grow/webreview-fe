@@ -12,8 +12,8 @@
         focus-out="focusOut"}}
     {{#if translation.isDirty}}
       <div class="form-field">
-        <button class="btn btn--sm btn--primary" type="button">Save</button>
-        <button class="btn btn--sm " type="button">Cancel</button>
+        <button class="btn btn--sm btn--primary" type="button" {{action "updateTranslation" translation}}>Save</button>
+        <button class="btn btn--sm" type="button" {{action "rollbackTranslation" translation}}>Cancel</button>
       </div>
     {{/if}}
   </div>
