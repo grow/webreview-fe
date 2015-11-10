@@ -22,4 +22,8 @@ export default Ember.Route.extend({
   deactivate: function() {
     Ember.set(this.modelFor('owner'), 'project', null);
   },
+  error: function(error, transition) {
+    this.set('model.errors', error.errors);
+    return true;
+  },
 });

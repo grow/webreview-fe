@@ -1,4 +1,10 @@
-<h2>Translations ({{model.locale}})</h2>
+<h2>Translations › {{model.name}} ({{model.locale}})</h2>
+
+<div class="margin--bottom">
+  {{progress-bar-inline
+      class="progress-bar"
+      percent=model.percent_translated}}
+</div>
 
 {{#each model.translations as |translation|}}
   {{translation-row

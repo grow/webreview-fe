@@ -1,4 +1,8 @@
-<div class="error">
+<div class="breadcrumb">
   <h1>Something bad happened</h1>
-  <p>An error occurred.</p>
+</div>
+<div class="box">
+  {{error-list
+      errors=model.errors
+      inline=true}}
 </div>

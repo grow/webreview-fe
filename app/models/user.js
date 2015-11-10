@@ -6,4 +6,5 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   location: DS.attr('string'),
   nickname: DS.attr('string'),
+  name: DS.attr('string'),
 });

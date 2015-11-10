@@ -15,4 +15,9 @@ export default Ember.Route.extend({
       projects: projects,
     });
   },
+
+  error: function(error, transition) {
+    this.set('model.errors', error.errors);
+    return true;
+  },
 });
