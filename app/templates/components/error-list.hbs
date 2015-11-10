@@ -1,5 +1,5 @@
 {{#if errors}}
-  <div class="error-list {{if inline "error-list--inline"}}">
+  <div class="error-list {{if inline "error-list--inline"}} margin--{{margin}}">
   {{#each error in errors}}
     <div class="error-list-error">{{error.detail}}</div>
   {{/each}}

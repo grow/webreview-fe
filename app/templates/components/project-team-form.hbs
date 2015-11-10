@@ -5,12 +5,16 @@
         placeholder="Enter username or email"
         value=newMemberIdentifier
         class="form-control"
+        required="true"
         autofocus="true"}}
   </div>
   <div class="form-field form-field--inline">
     <button type="submit" class="btn btn--primary">Add member</button>
   </div>
-  {{error-list errors=errors}}
+
+  {{error-list
+      margin="bottom"
+      errors=errors}}
 </form>
 
 <table class="table">
@@ -18,6 +22,7 @@
     <tr>
       <td>Person</td>
       <td>Role</td>
+      <td></td>
     </tr>
   </thead>
   {{#each team.memberships as |membership|}}
@@ -28,6 +33,9 @@
       </td>
       <td>
         {{membership.role}}
+      </td>
+      <td>
+        <div class="form-control-x" {{action "deleteMembership" team membership}}>✕</div>
       </td>
     </tr>
   {{/each}}

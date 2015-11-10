@@ -19,9 +19,22 @@ export default Ember.Component.extend({
       membership.set('team_ident', this.get('project.ident'));
       membership.save().then(function() {
         this.sendAction('membershipCreated', membership);
+        var team = this.get('team');
+        team.reload();
+        this.set('errors', null);
       }.bind(this), function(errors) {
         this.set('errors', errors.errors);
       }.bind(this));
+    },
+    deleteMembership: function(team, membership) {
+      membership.set('team_ident', team.get('ident'));
+      membership.destroyRecord().then(function() {
+        var team = this.get('team');
+        team.reload();
+      }.bind(this), function(errors) {
+        membership.rollback();
+        this.set('errors', errors.errors);
+      }.bind(this))
     },
   },
 });

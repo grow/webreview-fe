@@ -10,4 +10,9 @@ export default Ember.Route.extend({
       team: team,
     });
   },
+  actions: {
+    membershipCreated: function(membership) {
+      console.log(membership);
+    },
+  },
 });
