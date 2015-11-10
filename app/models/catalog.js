@@ -9,4 +9,6 @@ export default DS.Model.extend({
   num_messages: DS.attr('number'),
   project: DS.belongsTo('project'),
   translations: DS.hasMany('translation'),
+  ref: DS.attr('string'),
+  sha: DS.attr('string'),
 });

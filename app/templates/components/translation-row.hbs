@@ -10,7 +10,7 @@
         value=translation.string
         class="form-control form-control--max"
         focus-out="focusOut"}}
-    {{#if translation.isDirty}}
+    {{#if translation.hasDirtyAttributes}}
       <div class="form-field">
         <button class="btn btn--sm btn--primary" type="button" {{action "updateTranslation" translation}}>Save</button>
         <button class="btn btn--sm" type="button" {{action "rollbackTranslation" translation}}>Cancel</button>
