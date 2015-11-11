@@ -11,9 +11,9 @@ export default Ember.Component.extend({
       translation.set('ref', catalog.get('ref'));
       translation.set('locale', catalog.get('locale'));
       translation.save().then(function() {
-
-      }.bind(this), function(errors) {
-        
+        this.sendAction('handleErrors', null);
+      }.bind(this), function(error) {
+        this.sendAction('handleErrors', error.errors);
       }.bind(this));
     },
     rollbackTranslation: function(translation) {

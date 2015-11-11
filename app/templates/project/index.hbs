@@ -20,7 +20,7 @@
           <div class="text--meta">{{fileset.commit.message}}</div>
         </td>
         <td>
-          {{fileset.modified}}
+          {{moment-from-now fileset.modified}}
         </td>
       </tr>
     {{/each}}

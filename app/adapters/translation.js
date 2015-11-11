@@ -5,11 +5,10 @@ export default ApplicationAdapter.extend({
   namespace: 'translations',
   updateRecord: function(store, type, snapshot) {
     var translation = this.serialize(snapshot);
-    console.log(translation);
     var req = {
       'project': {
-          'nickname': translation['project_nickname'],
-          'owner': {'nickname': translation['project_owner_nickname']},
+          'nickname': snapshot.get('project_nickname'),
+          'owner': {'nickname': snapshot.get('project_owner_nickname')},
       },
       'catalog': {
         'locale': translation['locale'],
