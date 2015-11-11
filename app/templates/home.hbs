@@ -2,6 +2,10 @@
   <h1>Your projects</h1>
 </div>
 <div class="box">
-  {{project-table
-      projects=model}}
+  {{#if model}}
+    {{project-table
+        projects=model}}
+  {{else}}
+    <div>No projects yet.</div>
+  {{/if}}
 </div>
