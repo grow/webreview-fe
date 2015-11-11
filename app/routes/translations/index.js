@@ -15,8 +15,10 @@ export default Ember.Route.extend({
     };
     var project = this.store.findRecord('project', projectName);
     var catalogs = this.store.query('catalog', projectObj);
+    var branches = this.store.query('branch', projectObj);
     return Ember.RSVP.hash({
       errors: null,
+      branches: branches,
       project: project,
       catalogs: catalogs,
     });

@@ -23,4 +23,3 @@ export default ApplicationAdapter.extend({
     return this._request('projects.list_catalogs', options);
   },
 });
-
