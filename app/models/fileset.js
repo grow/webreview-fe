@@ -7,5 +7,6 @@ export default DS.Model.extend({
   status: DS.attr('string'),
   modified: DS.attr('date'),
   finalized: DS.attr('boolean'),
+  subdomain: DS.attr('string'),
   commit: DS.belongsTo('commit'),
 });

@@ -2,16 +2,20 @@
   <table class="table table--fixed">
     <thead>
       <tr>
-        <td style="width: 80px">Commit</td>
-        <td style="width: 80px">Branch</td>
+        <td style="width: 150px">Subdomain</td>
+        <td style="width: 70px">Commit</td>
+        <td style="width: 70px">Branch</td>
         <td></td>
         <td style="width: 250px">Updated</td>
       </tr>
     </thead>
     {{#each model.filesets as |fileset|}}
       <tr>
+        <td class="table-cell-clip">
+          <div class="text--nowrap"><a href="{{fileset.url}}">{{fileset.subdomain}}</a></div>
+        </td>
         <td>
-          <div><a href="{{fileset.url}}">{{fileset.commit.sha_short}}</a></div>
+          <div class="text--nowrap">{{fileset.commit.sha_short}}</div>
         </td>
         <td>
           {{fileset.commit.branch}}

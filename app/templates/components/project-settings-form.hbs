@@ -3,6 +3,12 @@
   {{error-list errors=errors}}
 
   <div class="form-field">
+    <label>Icon</label>
+    {{avatar-form-control
+        url=project.avatar_url}}
+  </div>
+
+  <div class="form-field">
     <label>Name</label>
     {{input type="text" value=project.nickname class="form-control" autofocus="true"}}
   </div>

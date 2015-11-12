@@ -1,10 +1,9 @@
 <form class="form" {{action "updateUser" on="submit"}}>
 
   <div class="form-field">
-    <label>Avatar</label>
-    <div class="form-control form-control--picture">
-      <img src="{{user.avatar_url}}">
-    </div>
+    <label>Profile picture</label>
+    {{avatar-form-control
+        url=user.avatar_url}}
   </div>
 
   <div class="form-field">
