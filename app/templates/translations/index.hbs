@@ -1,33 +1,4 @@
-<h2>Translations</h2>
-
-<div class="form">
-  <div class="form-field margin--bottom">
-    {{branch-select branches=model.branches}}
-  </div>
-</div>
-
-<table class="table">
-  <thead>
-    <tr>
-      <td style="width: 80px">Identifier</td>
-      <td>Name</td>
-      <td style="width: 150px">Translated</td>
-    </tr>
-  </thead>
-  {{#each model.catalogs as |catalog|}}
-    <tr>
-      <td>
-        {{catalog.locale}}
-      </td>
-      <td>
-        {{#link-to 'translations.locale' model.project.owner.nickname model.project.nickname catalog.locale}}{{catalog.name}}{{/link-to}}
-      </td>
-      <td>
-        {{progress-bar-inline
-            class="progress-bar progress-bar--inline"
-            percent=catalog.percent_translated}}
-        {{catalog.percent_translated}}%
-      </td>
-    </tr>
-  {{/each}}
-</table>
+{{translations-locales-table
+    project=model.project
+    branch="localize"
+    catalogs=model.catalogs}}

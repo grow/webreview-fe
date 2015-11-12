@@ -16,7 +16,9 @@ Router.map(function() {
     this.resource('project', {path: '/:project_nickname'}, function() {
       this.route('content', {path: '/content'});
       this.resource('translations', {path: '/translations'}, function() {
-        this.route('locale', {path: '/:locale'});
+        this.resource('locales', {path: '/:branch'}, function() {
+          this.route('locale', {path: '/:locale'});
+        });
       });
       this.route('settings', {path: '/settings'});
       this.route('team', {path: '/team'});
