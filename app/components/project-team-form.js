@@ -16,7 +16,7 @@ export default Ember.Component.extend({
 
       var membership = store.createRecord('membership');
       membership.set('user', user);
-      membership.set('team_ident', this.get('project.ident'));
+      membership.set('project_ident', this.get('project.ident'));
       membership.save().then(function() {
         this.sendAction('membershipCreated', membership);
         var team = this.get('team');
@@ -27,7 +27,7 @@ export default Ember.Component.extend({
       }.bind(this));
     },
     deleteMembership: function(team, membership) {
-      membership.set('team_ident', team.get('ident'));
+      membership.set('project_ident', this.get('project.ident'));
       membership.destroyRecord().then(function() {
         var team = this.get('team');
         team.reload();

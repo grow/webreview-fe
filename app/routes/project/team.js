@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model: function(params) {
     var project = this.modelFor('project');
-    var team = this.store.findRecord('team', project.get('ident'));
+    var team = this.store.findRecord('group', project.get('ident'));
     return Ember.RSVP.hash({
       newMemberIdentifier: null,
       project: project,
@@ -12,7 +12,6 @@ export default Ember.Route.extend({
   },
   actions: {
     membershipCreated: function(membership) {
-      console.log(membership);
     },
   },
 });

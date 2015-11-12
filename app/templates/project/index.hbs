@@ -1,5 +1,5 @@
 {{#if model.filesets}}
-  <table class="table">
+  <table class="table table--fixed">
     <thead>
       <tr>
         <td style="width: 80px">Commit</td>
@@ -16,8 +16,8 @@
         <td>
           {{fileset.commit.branch}}
         </td>
-        <td>
-          <div class="text--meta">{{fileset.commit.message}}</div>
+        <td class="table-cell-clip">
+          <div class="text--meta text--nowrap">{{fileset.commit.message}}</div>
         </td>
         <td>
           {{moment-from-now fileset.modified}}

@@ -1,6 +1,15 @@
-table.table
+.table
   border-collapse: collapse
   width: 100%
+
+  &--fixed
+    table-layout: fixed
+
+    .text--meta
+      color: $color-gray
+
+  &-cell-clip
+    overflow: hidden
 
   td
     padding: 6px 10px

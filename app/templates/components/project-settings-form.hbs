@@ -1,5 +1,7 @@
 <form class="form" {{action "updateProject" on="submit"}}>
 
+  {{error-list errors=errors}}
+
   <div class="form-field">
     <label>Name</label>
     {{input type="text" value=project.nickname class="form-control" autofocus="true"}}
@@ -15,9 +17,14 @@
     {{input type="url" value=project.git_url class="form-control form-control--max"}}
   </div>
 
-  <div class="form-field form-field--last">
+  <div class="form-field">
     <button type="submit" class="btn btn--primary">Save</button>
   </div>
 
-  {{error-list errors=errors}}
+  <div class="form-field form-field--separator"></div>
+
+  <div class="form-field">
+    <button type="button" class="btn btn--danger">Delete</button>
+  </div>
+
 </form>

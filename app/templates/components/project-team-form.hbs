@@ -9,7 +9,7 @@
         autofocus="true"}}
   </div>
   <div class="form-field form-field--inline">
-    <button type="submit" class="btn btn--primary">Add member</button>
+    <button type="submit" class="btn btn--primary">Add person</button>
   </div>
 
   {{error-list
@@ -25,14 +25,14 @@
       <td></td>
     </tr>
   </thead>
-  {{#each team.memberships as |membership|}}
+  {{#each team.users as |membership|}}
     <tr>
       <td>
         <img src="{{membership.user.avatar_url}}" class="avatar avatar--xs">
-        {{membership.user.nickname}}
+        {{membership.user.email}}
       </td>
       <td>
-        {{membership.role}}
+        {{role-select role=membership.role}}
       </td>
       <td>
         <div class="form-control-x" {{action "deleteMembership" team membership}}>✕</div>
