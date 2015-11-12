@@ -10,7 +10,7 @@ export default ApplicationSerializer.extend(DS.EmbeddedRecordsMixin, {
   },
   attrs: {
     users: {embedded: 'always'},
+    domains: {embedded: 'always'},
     project: {embedded: 'always'},
-    memberships: {embedded: 'always'},
   },
 });

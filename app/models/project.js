@@ -6,6 +6,7 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   git_url: DS.attr('string'),
   ident: DS.attr('string'),
+  name: DS.attr('string'),
   nickname: DS.attr('string'),
   owner: DS.belongsTo('owner'),
 });

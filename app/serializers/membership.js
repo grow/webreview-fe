@@ -4,7 +4,9 @@ import DS from 'ember-data';
 export default ApplicationSerializer.extend(DS.EmbeddedRecordsMixin, {
   normalizeId: function(hash) {
     if (hash['user']) {
-      hash.id = hash['user']['ident']
+      hash.id = hash['ident'] + hash['user']['ident'];
+    } else if (hash['domain']) {
+      hash.id = hash['ident'] + hash['domain'];
     }
     return hash;
   },

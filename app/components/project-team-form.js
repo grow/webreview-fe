@@ -7,16 +7,28 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
 
   actions: {
+    handleErrors: function(errors) {
+      this.sendAction('handleErrors', errors);
+      this.set('errors', errors);
+    },
     createMembership: function() {
       var store = this.get('store');
-
-      var user = store.createRecord('user');
-      var identifier = this.get('newMemberIdentifier');
-      user.set('email', identifier)
-
       var membership = store.createRecord('membership');
-      membership.set('user', user);
       membership.set('project_ident', this.get('project.ident'));
+
+      var identifier = this.get('newMemberIdentifier');
+      if (identifier.indexOf('@') > -1) {
+        var user = store.createRecord('user');
+        user.set('email', identifier)
+        membership.set('user', user);
+      } else if (identifier.indexOf('.') > -1) {
+        membership.set('domain', identifier);
+      } else {
+        var user = store.createRecord('user');
+        user.set('email', identifier)
+        membership.set('user', user);
+      }
+
       membership.save().then(function() {
         this.sendAction('membershipCreated', membership);
         var team = this.get('team');

@@ -2,14 +2,14 @@
   <div class="form-field form-field--inline">
     {{input
         type="text"
-        placeholder="Enter username or email"
+        placeholder="Enter username, email, or domain"
         value=newMemberIdentifier
         class="form-control"
         required="true"
         autofocus="true"}}
   </div>
   <div class="form-field form-field--inline">
-    <button type="submit" class="btn btn--primary">Add person</button>
+    <button type="submit" class="btn btn--primary">Add member</button>
   </div>
 
   {{error-list
@@ -17,26 +17,30 @@
       errors=errors}}
 </form>
 
-<table class="table">
-  <thead>
-    <tr>
-      <td>Person</td>
-      <td>Role</td>
-      <td></td>
-    </tr>
-  </thead>
-  {{#each team.users as |membership|}}
-    <tr>
-      <td>
-        <img src="{{membership.user.avatar_url}}" class="avatar avatar--xs">
-        {{membership.user.email}}
-      </td>
-      <td>
-        {{role-select role=membership.role}}
-      </td>
-      <td>
-        <div class="form-control-x" {{action "deleteMembership" team membership}}>✕</div>
-      </td>
-    </tr>
-  {{/each}}
-</table>
+{{#if team.is_empty}}
+
+  <div>The project team is empty. Only you can view the project. Add members by email address or domain.</div>
+
+{{else}}
+
+  {{#if team.domains}}
+    {{membership-table
+        caption="Domain"
+        class="margin--bottom"
+        project=project
+        roles=domainRoles
+        team=team
+        memberships=team.domains}}
+  {{/if}}
+
+  {{#if team.users}}
+  {{userRoles}}
+    {{membership-table
+        caption="Person"
+        project=project
+        roles=userRoles
+        team=team
+        memberships=team.users}}
+  {{/if}}
+
+{{/if}}

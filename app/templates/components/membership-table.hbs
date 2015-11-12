@@ -1,0 +1,35 @@
+<table class="table table--min">
+  <thead>
+    <tr>
+      <td>{{caption}}</td>
+      <td>Role</td>
+      <td></td>
+    </tr>
+  </thead>
+  {{#each memberships as |membership|}}
+    <tr>
+      <td>
+        {{#if membership.user}}
+          <img src="{{membership.user.avatar_url}}" class="avatar avatar--xs">
+          {{membership.user.email}}
+        {{else}}
+          Everyone in {{membership.domain}}
+        {{/if}}
+      </td>
+      <td>
+        {{#if membership.user}}
+          {{role-select
+              selectedRole=membership.role
+              roles=userRoles}}
+        {{else}}
+          {{role-select
+              selectedRole=membership.role
+              roles=domainRoles}}
+        {{/if}}
+      </td>
+      <td>
+        <div class="form-control-x" {{action "deleteMembership" team membership}}>✕</div>
+      </td>
+    </tr>
+  {{/each}}
+</table>

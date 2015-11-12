@@ -1,7 +1,7 @@
 <select>
-  {{#selected role}}
-    <option value="ADMIN">Owner</option>
-    <option value="READ_ONLY">Read only</option>
-    <option value="WRITE">Write</option>
+  {{#selected selectedRole}}
+    {{#each roles as |role|}}
+      <option value="{{role.value}}">{{role.caption}}</option>
+    {{/each}}
   {{/selected}}
 </select>
