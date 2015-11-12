@@ -14,3 +14,15 @@
     height: 1em
     display: inline-block
     background: #3DD0AD
+
+    @for $i from 1 to 30
+      &[data-percent='#{$i}']
+        background: $color-error
+
+    @for $i from 31 to 75
+      &[data-percent='#{$i}']
+        background: $color-warning
+
+    @for $i from 75 to 99
+      &[data-percent='#{$i}']
+        background: $color-link

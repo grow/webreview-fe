@@ -1,6 +1,13 @@
 <form class="form" {{action "updateUser" on="submit"}}>
 
   <div class="form-field">
+    <label>Avatar</label>
+    <div class="form-control form-control--picture">
+      <img src="{{user.avatar_url}}">
+    </div>
+  </div>
+
+  <div class="form-field">
     <label>Username</label>
     {{input type="text" value=user.nickname class="form-control" readonly="true"}}
   </div>
