@@ -13,8 +13,18 @@
   </div>
 
   <div class="form-field">
-    <label>Repository URL</label>
+    <label>
+      Repository URL
+      {{#if project.buildbot_job_id}}
+        <div class="form-field-dot form-field-dot--success" title="{{project.buildbot_job_id}}"></div>
+      {{else}}
+        <div class="form-field-dot form-field-dot--error"></div>
+      {{/if}}
+    </label>
     {{input type="url" value=project.git_url class="form-control form-control--max"}}
+    <div class="form-field-help">
+      Enter the URL to this project's Git repository to enable build integrations.
+    </div>
   </div>
 
   <div class="form-field">

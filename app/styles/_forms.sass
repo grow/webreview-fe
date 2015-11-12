@@ -19,9 +19,27 @@
       margin-bottom: 0
 
     &-help
-      font-size: 12px
-      margin: 9px 0
+      font-size: 11px
+      margin: 6px 0 9px
       color: #555
+
+    &-dot
+      border-radius: 8px;
+      display: inline-block;
+      height: 8px;
+      margin-left: 2px;
+      margin-top: 2px;
+      vertical-align: top;
+      width: 8px;
+
+      &--success
+        background-color: $color-success
+
+      &--warning
+        background-color: $color-warning
+
+      &--error
+        background-color: $color-error
 
   &-control
     color: $color-text
