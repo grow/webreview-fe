@@ -1,4 +1,4 @@
-<select class="form-control">
+<select class="form-control" {{action "selectBranch" on="change"}}>
   {{#each branches as |branch|}} 
     <option>{{branch.name}}</option>
   {{/each}}

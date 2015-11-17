@@ -10,4 +10,5 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   nickname: DS.attr('string'),
   owner: DS.belongsTo('owner'),
+  translation_branch: DS.attr('string'),
 });
