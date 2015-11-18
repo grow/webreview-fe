@@ -15,4 +15,13 @@ export default Ember.Route.extend({
       filesets: filesets,
     });
   },
+  actions: {
+    deleteFileset: function(fileset) {
+      fileset.destroyRecord().then(function() {
+      }.bind(this), function(errors) {
+        membership.rollback();
+        this.set('errors', errors.errors);
+      }.bind(this))
+    },
+  },
 });

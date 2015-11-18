@@ -7,6 +7,7 @@
         <td style="width: 70px">Branch</td>
         <td></td>
         <td style="width: 250px">Updated</td>
+        <td style="width: 50px"></td>
       </tr>
     </thead>
     {{#each model.filesets as |fileset|}}
@@ -25,6 +26,9 @@
         </td>
         <td>
           {{moment-from-now fileset.modified}}
+        </td>
+        <td>
+          <div class="form-control-x" {{action "deleteFileset" fileset}}>✕</div>
         </td>
       </tr>
     {{/each}}
