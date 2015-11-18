@@ -1,7 +1,5 @@
-<select>
-  {{#selected selectedRole}}
-    {{#each roles as |role|}}
-      <option value="{{role.value}}">{{role.caption}}</option>
-    {{/each}}
-  {{/selected}}
+<select {{action "updateMembership" on="change"}}>
+  {{#each roles as |role|}}
+    <option value="{{role.value}}" selected={{is-equal role.value selectedRole}}>{{role.caption}}</option>
+  {{/each}}
 </select>

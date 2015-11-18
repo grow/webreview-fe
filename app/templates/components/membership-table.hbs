@@ -19,10 +19,16 @@
       <td>
         {{#if membership.user}}
           {{role-select
+              team=team
+              membership=membership
+              project=project
               selectedRole=membership.role
               roles=userRoles}}
         {{else}}
           {{role-select
+              team=team
+              membership=membership
+              project=project
               selectedRole=membership.role
               roles=domainRoles}}
         {{/if}}
