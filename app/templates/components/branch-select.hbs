@@ -1,5 +1,8 @@
 <select class="form-control" {{action "selectBranch" on="change"}}>
+  {{#if placeholder}}
+    <option value="">{{placeholder}}</option>
+  {{/if}}
   {{#each branches as |branch|}} 
-    <option>{{branch.name}}</option>
+    <option selected={{is-equal branch.name selectedBranch}}>{{branch.name}}</option>
   {{/each}}
 </select>

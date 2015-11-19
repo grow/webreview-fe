@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model: function(params, transition) {
     var branch = params.branch;
+
+    var translationsRouteModel = this.modelFor('translations');
+    Ember.set(translationsRouteModel, 'branch', branch);
+
     var ownerRouteModel = this.modelFor('owner');
     var ownerNickname = ownerRouteModel.owner.get('nickname');
     var projectRouteModel = this.modelFor('project');
