@@ -14,13 +14,11 @@ export default Ember.Route.extend({
       },
     };
     var project = this.store.findRecord('project', projectName);
-    var catalogs = this.store.query('catalog', projectObj);
     var branches = this.store.query('branch', projectObj);
     return Ember.RSVP.hash({
       errors: null,
       branches: branches,
       project: project,
-      catalogs: catalogs,
     });
   },
 
@@ -30,12 +28,14 @@ export default Ember.Route.extend({
       return true;
     },
 
-    catalogSelected: function(project, catalog) {
+    selectBranch: function(branch) {
+      var translationsRouteModel = this.modelFor('translations');
+      var project = translationsRouteModel.project;
       this.transitionTo(
-          'translations.locale',
+          'locales',
           project.get('owner.nickname'),
           project.get('nickname'),
-          catalog.get('locale'),
+          branch,
       );
     },
 

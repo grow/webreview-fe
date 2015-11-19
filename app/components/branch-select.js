@@ -2,9 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   branches: null,
+
   actions: {
     selectBranch: function() {
-      console.log('selected');
+      var branch = this.get('element').querySelector('select').value;
+      this.sendAction('selectBranch', branch);
     },
   },
 });

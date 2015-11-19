@@ -7,16 +7,16 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
 
   domainRoles: [
-    {'caption': 'Can edit', 'value': 'WRITE'},
-    {'caption': 'Can translate', 'value': 'TRANSLATE'},
-    {'caption': 'View only', 'value': 'READ'},
+    {'caption': 'Editor', 'value': 'WRITE'},
+    {'caption': 'Translator', 'value': 'TRANSLATE'},
+    {'caption': 'Viewer', 'value': 'READ'},
   ],
 
   userRoles: [
     {'caption': 'Admin', 'value': 'ADMIN'},
-    {'caption': 'Can edit', 'value': 'WRITE'},
-    {'caption': 'Can translate', 'value': 'TRANSLATE'},
-    {'caption': 'View only', 'value': 'READ'},
+    {'caption': 'Editor', 'value': 'WRITE'},
+    {'caption': 'Translator', 'value': 'TRANSLATE'},
+    {'caption': 'Viewer', 'value': 'READ'},
   ],
 
   actions: {

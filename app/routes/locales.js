@@ -2,12 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function(params, transition) {
+    var branch = params.branch;
     var ownerRouteModel = this.modelFor('owner');
     var ownerNickname = ownerRouteModel.owner.get('nickname');
     var projectRouteModel = this.modelFor('project');
     var projectNickname = projectRouteModel.get('nickname');
     var projectName = ownerNickname + '/' + projectNickname;
     var projectObj = {
+      'branch': branch,
       'project': {
         'nickname': projectNickname,
         'owner': {'nickname': ownerNickname},
@@ -15,10 +17,9 @@ export default Ember.Route.extend({
     };
     var project = this.store.findRecord('project', projectName);
     var catalogs = this.store.query('catalog', projectObj);
-    var branches = this.store.query('branch', projectObj);
     return Ember.RSVP.hash({
       errors: null,
-      branches: branches,
+      branch: branch,
       project: project,
       catalogs: catalogs,
     });
@@ -32,7 +33,7 @@ export default Ember.Route.extend({
 
     catalogSelected: function(project, catalog) {
       this.transitionTo(
-          'translations.locale',
+          'locales.locale',
           project.get('owner.nickname'),
           project.get('nickname'),
           catalog.get('locale'),
@@ -44,3 +45,4 @@ export default Ember.Route.extend({
     },
   },
 });
+
