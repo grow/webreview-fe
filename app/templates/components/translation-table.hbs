@@ -1,0 +1,41 @@
+<div class="grid-4">
+  <div>
+    Order
+    <select data-id="selectedOrder" {{action "updateSelected" "selectedOrder" on="change"}}>
+      {{#each orderChoices as |choice|}}
+        <option value="{{choice.value}}" selected={{is-equal choice.value selectedOrder}}>{{choice.caption}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div>
+    Show
+    <select data-id="selectedShow" {{action "updateSelected" "selectedShow" on="change"}}>
+      {{#each showChoices as |choice|}}
+        <option value="{{choice.value}}" selected={{is-equal choice.value selectedShow}}>{{choice.caption}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div>
+  </div>
+  <div>
+    {{input
+        action="updateSearch"
+        class="form-control form-control--max"
+        placeholder="Search"}}
+  </div>
+</div>
+
+<div class="margin--bottom margin--top">
+  {{progress-bar-inline
+      class="progress-bar"
+      percent=catalog.percent_translated}}
+</div>
+
+{{#each filteredTranslations as |translation|}}
+  {{translation-row
+      translation=translation
+      catalog=catalog
+      handleErrors="handleErrors"}}
+{{else}}
+  <div>No matching results.</div>
+{{/each}}

@@ -25,7 +25,7 @@
           <div class="text--meta text--nowrap">{{fileset.commit.message}}</div>
         </td>
         <td>
-          {{moment-from-now fileset.modified}}
+          {{moment-to-now fileset.modified}}
         </td>
         <td>
           <div class="form-control-x" {{action "deleteFileset" fileset}}>✕</div>

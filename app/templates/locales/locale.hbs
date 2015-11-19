@@ -1,17 +1,8 @@
 <h3>{{model.catalog.name}} ({{model.catalog.locale}})</h3>
 
-{{errors}}
 {{error-list errors=errors}}
 
-<div class="margin--bottom">
-  {{progress-bar-inline
-      class="progress-bar"
-      percent=model.catalog.percent_translated}}
-</div>
-
-{{#each model.catalog.translations as |translation|}}
-  {{translation-row
-      translation=translation
-      catalog=model.catalog
-      handleErrors="handleErrors"}}
-{{/each}}
+{{translation-table
+    handleErrors="handleErrors"
+    catalog=model.catalog
+    translations=model.catalog.translations}}
