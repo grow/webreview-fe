@@ -1,1 +1,1 @@
-<div class="progress-bar-fill" data-percent="{{percent}}" style="width: {{percent}}%"></div>
+<div class="progress-bar-fill {{if showLabel "progress-bar-label"}}" data-percent="{{percent}}" style="width: {{percent}}%">{{#if showLabel}}{{minNum}}/{{maxNum}}{{/if}}</div>

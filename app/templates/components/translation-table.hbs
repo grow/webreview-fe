@@ -27,7 +27,10 @@
 
 <div class="margin--bottom margin--top">
   {{progress-bar-inline
+      showLabel="true"
       class="progress-bar"
+      minNum=catalog.num_translated
+      maxNum=catalog.num_messages
       percent=catalog.percent_translated}}
 </div>
 
