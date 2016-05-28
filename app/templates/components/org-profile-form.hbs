@@ -1,0 +1,19 @@
+<form class="form" {{action "updateOrg" on="submit"}}>
+  <div class="form-field">
+    <label>Profile picture</label>
+    {{avatar-form-control url=org.avatar_url}}
+  </div>
+
+  <div class="form-field">
+    <label>Shortname</label>
+    {{input type="text" value=org.nickname class="form-control" readonly="true"}}
+  </div>
+
+  <div class="form-field">
+    <button type="submit" class="btn btn--primary">Save</button>
+  </div>
+
+  {{#each error in errors}}
+    <p>{{error.detail}}</p>
+  {{/each}}
+</form>

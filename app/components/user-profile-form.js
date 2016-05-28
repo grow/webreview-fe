@@ -6,7 +6,6 @@ export default Ember.Component.extend({
     updateUser: function() {
       var user = this.get('user');
       user.save().then(function() {
-
       }.bind(this), function(errors) {
         this.set('errors', errors.errors);
       }.bind(this));

@@ -24,13 +24,13 @@
 {{else}}
 
   <div>
-    <b>{{owner-chip owner=project.owner class="inline"}}</b> is the project owner.
+    <b>{{owner-chip owner=org.owner class="inline"}}</b> is the organization owner.
   </div>
 
   {{#if team.domains}}
     {{membership-table
-        class="margin--top"
         caption="Domain"
+        class="margin--bottom margin--top"
         project=project
         roles=domainRoles
         team=team
@@ -41,7 +41,6 @@
   {{#if team.users}}
   {{userRoles}}
     {{membership-table
-        class="margin--top"
         caption="Person"
         project=project
         roles=userRoles

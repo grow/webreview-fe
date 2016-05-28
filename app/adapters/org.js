@@ -13,6 +13,10 @@ export default ApplicationAdapter.extend({
     return this._request('orgs.get', body);
   },
   query: function(something, type, options) {
-    return this._request('users.search_orgs', options, true);
+    if (options.mine) {
+      return this._request('me.search_orgs', {});
+    } else {
+      return this._request('users.search_orgs', options, true);
+    }
   },
 });

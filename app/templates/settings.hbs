@@ -5,8 +5,20 @@
   <div class="container-sidebar">
     <div class="container-box container-box--nav">
       <ul class="container-nav">
+        <li class="container-nav-title">You</li>
         <li>{{#link-to 'settings.index'}}Profile{{/link-to}}</li>
-        <li>{{#link-to 'settings.orgs'}}Organizations{{/link-to}}</li>
+      </ul>
+    </div>
+    <div class="container-box container-box--nav margin--top--sm">
+      <ul class="container-nav">
+        {{#each model.orgs as |org|}}
+          <li class="container-nav-title">Organizations</li>
+          <li>
+          {{#link-to 'org.profile' org.nickname}}
+          <img src="{{org.avatar_url}}" class="avatar avatar--xs"> {{org.nickname}}
+          {{/link-to}}
+          </li>
+        {{/each}}
       </ul>
     </div>
   </div>

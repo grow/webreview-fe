@@ -1,3 +1,21 @@
-{{outlet}}
-
-what what
+<div class="breadcrumb">
+  <h1>
+    {{#link-to "owner" model.org.nickname class="breadcrumb-avatar"}}<img src="{{model.org.avatar_url}}">{{/link-to}}
+    {{#link-to "owner" model.org.nickname}}{{model.org.nickname}}{{/link-to}}
+  </h1>
+</div>
+<div class="container">
+  <div class="container-sidebar">
+    <div class="container-box container-box--nav">
+      <ul class="container-nav">
+        <li>{{#link-to 'org.profile'}}Profile{{/link-to}}</li>
+        <li>{{#link-to 'org.people'}}People{{/link-to}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container-main">
+    <div class="container-box container-box--main">
+      {{outlet}}
+    </div>
+  </div>
+</div>
