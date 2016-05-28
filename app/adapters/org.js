@@ -5,7 +5,8 @@ export default ApplicationAdapter.extend({
   namespace: 'orgs',
   createRecord: function(store, type, snapshot) {
     var org = this.serialize(snapshot);
-    return this._request('orgs.create', org);
+    var body = {'org': org};
+    return this._request('orgs.create', body);
   },
   findRecord: function(store, type, id, snapshot) {
     var body = {'org': {'nickname': id}};

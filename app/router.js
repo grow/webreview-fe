@@ -10,7 +10,9 @@ Router.map(function() {
   this.resource('new', {path: '/new'});
   this.resource('new-org', {path: '/new/org'});
   this.resource('settings', {path: '/settings'}, function() {
-    this.route('org', {path: '/org/:org_nickname'});
+    this.route('orgs', {path: '/orgs'}, function() {
+      this.route('org', {path: '/:org_nickname'});
+    });
   });
   this.resource('owner', {path: '/:owner_nickname'}, function() {
     this.resource('project', {path: '/:project_nickname'}, function() {

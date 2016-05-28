@@ -1,9 +1,9 @@
 <div class="breadcrumb">
   <h1>
     {{#if model.project}}
-      {{#link-to "project" model.project.nickname}}<img src="{{model.project.avatar_url}}">{{/link-to}}
+      {{#link-to "project" model.project.nickname class="breadcrumb-avatar"}}<img src="{{model.project.avatar_url}}">{{/link-to}}
     {{else}}
-      {{#link-to "owner" model.owner.nickname}}<img src="{{model.owner.avatar_url}}">{{/link-to}}
+      {{#link-to "owner" model.owner.nickname class="breadcrumb-avatar"}}<img src="{{model.owner.avatar_url}}">{{/link-to}}
     {{/if}}
     {{#link-to "owner" model.owner.nickname}}{{model.owner.nickname}}{{/link-to}}
     {{if model.project "/"}}

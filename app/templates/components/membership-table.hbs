@@ -10,8 +10,7 @@
     <tr>
       <td>
         {{#if membership.user}}
-          <img src="{{membership.user.avatar_url}}" class="avatar avatar--xs">
-          {{membership.user.email}}
+          {{owner-chip owner=membership.user}}
         {{else}}
           Everyone in {{membership.domain}}
         {{/if}}

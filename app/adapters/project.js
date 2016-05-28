@@ -3,7 +3,7 @@ import ApplicationAdapter from './application';
 export default ApplicationAdapter.extend({
   kind: 'project',
   namespace: 'projects',
-  findAll: function() {
+  findAll: function(options) {
     var req = {};
     return this._request('me.search_projects', req, true);
   },
@@ -22,6 +22,16 @@ export default ApplicationAdapter.extend({
         }
     };
     return this._request('projects.get', req);
+  },
+  query: function(store, snapshot, query) {
+    return this._request('projects.search', query, true);
+  },
+  transfer: function(project, newOwner) {
+    var req = {
+        'owner': newOwner,
+        'project': project
+    };
+    return this._request('projects.transfer', req);
   },
   updateRecord: function(store, type, snapshot) {
     var project = this.serialize(snapshot);

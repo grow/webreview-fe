@@ -1,12 +1,20 @@
-<table class="table">
-  {{#each project in projects}}
-    {{# if project.nickname}}
-      <tr>
-        <td>
-          {{#link-to 'project' project.owner.nickname project.nickname}}<img src="{{project.avatar_url}}" class="avatar avatar--xs">{{/link-to}}
-          {{#link-to 'project' project.owner.nickname project.nickname}}{{project.nickname}}{{/link-to}}
-        </td>
-      </tr>
-    {{/if}}
-  {{/each}}
-</table>
+{{#if projects}}
+  <table class="table">
+    {{#each project in projects}}
+      {{#if project.nickname}}
+        <tr>
+          <td>
+            {{#link-to 'project' project.owner.nickname project.nickname}}<img src="{{project.avatar_url}}" class="avatar avatar--xs">{{/link-to}}
+            {{#if showOwner}}
+              {{#link-to 'project' project.owner.nickname project.nickname}}{{project.owner.nickname}}/{{project.nickname}}{{/link-to}}
+            {{else}}
+              {{#link-to 'project' project.owner.nickname project.nickname}}{{project.nickname}}{{/link-to}}
+            {{/if}}
+          </td>
+        </tr>
+      {{/if}}
+    {{/each}}
+  </table>
+{{else}}
+  <div>No projects found.</div>
+{{/if}}

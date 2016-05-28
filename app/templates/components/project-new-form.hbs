@@ -38,7 +38,9 @@
     <button type="submit" class="btn btn--primary">Create</button>
   </div>
 
-  {{error-list
-    class="margin--top"
-    errors=errors}}
+  {{#if errors}}
+    {{error-list
+      class="margin--top"
+      errors=errors}}
+  {{/if}}
 </form>

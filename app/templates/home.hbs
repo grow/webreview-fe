@@ -3,8 +3,7 @@
 </div>
 <div class="box">
   {{#if model}}
-    {{project-table
-        projects=model}}
+    {{project-table showOwner=true projects=model}}
   {{else}}
     <div>No projects yet.</div>
   {{/if}}

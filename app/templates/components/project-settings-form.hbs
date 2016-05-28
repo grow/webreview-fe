@@ -1,6 +1,6 @@
-<form class="form" {{action "updateProject" on="submit"}}>
+<form class="form margin--bottom" {{action "update" on="submit"}}>
 
-  {{error-list errors=errors}}
+  {{error-list errors=errors class="margin--bottom"}}
 
   <div class="form-field">
     <label>Icon</label>
@@ -33,10 +33,12 @@
     </div>
   </div>
 
+  <!--
   <div class="form-field">
     <label>Default translation branch</label>
     {{input type="text" value=project.translation_branch class="form-control"}}
   </div>
+  -->
 
   <div class="form-field">
     <button type="submit" class="btn btn--primary">Save</button>
@@ -44,8 +46,31 @@
 
   <div class="form-field form-field--separator"></div>
 
-  <div class="form-field">
-    <button type="button" class="btn btn--danger">Delete {{project.name}}</button>
-  </div>
-
 </form>
+
+{{#if enableTransferForm}}
+  <div class="bordered margin--bottom">
+    <form class="form" {{action "transfer" newOwner on="submit"}}>
+      <h4>Transfer project</h4>
+      <div class="form-field">
+        <label>New owner's email address or organization name</label>
+        {{input type="text" value=newOwner class="form-control" required="true" autofocus="true"}}
+      </div>
+      <div class="form-field flush--bottom">
+        <button type="submit" class="btn btn--danger">Transfer project</button>
+        <button type="button" class="btn" {{action "setTransferFormEnabled" false}}>Cancel</button>
+      </div>
+      {{#if transferErrors}}
+        {{error-list errors=transferErrors class="margin--top"}}
+      {{/if}}
+    </form>
+  </div>
+{{else}}
+  <div class="form-field">
+    <button type="button" class="btn" {{action "setTransferFormEnabled" true}}>Transfer to another owner...</button>
+  </div>
+{{/if}}
+
+<div class="form-field">
+  <button type="button" class="btn">Delete {{project.name}}...</button>
+</div>
