@@ -1,2 +1,7 @@
-{{#link-to 'owner' owner.nickname}}<img src="{{owner.avatar_url}}" class="avatar avatar--xs">{{/link-to}}
-{{#link-to 'owner' owner.nickname class="color--inherit"}}{{owner.nickname}}{{/link-to}}
+{{#if hide_link}}
+  <img src="{{owner.avatar_url}}" class="avatar avatar--xs">
+  {{owner.nickname}}
+{{else}}
+  {{#link-to 'owner' owner.nickname}}<img src="{{owner.avatar_url}}" class="avatar avatar--xs">{{/link-to}}
+  {{#link-to 'owner' owner.nickname class="color--inherit"}}{{owner.nickname}}{{/link-to}}
+{{/if}}

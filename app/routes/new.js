@@ -7,8 +7,9 @@ export default Ember.Route.extend({
     var query = {'user': {'nickname': me.get('nickname')}};
     return Ember.RSVP.hash({
       me: me,
+      owner_nickname: me.get('nickname'),
       project: this.store.createRecord('project'),
-      owners: this.store.query('org', query),
+      orgs: this.store.query('org', {mine: true}),
     });
   },
   actions: {

@@ -1,11 +1,26 @@
 <form class="form" {{action "createProject" on="submit"}}>
   <div class="form-field">
     <label>Owner</label>
-    {{input
-        type="text"
-        value=project.owner.nickname
-        class="form-control"
-        autofocus="true"}}
+    <div>
+      <label class="form-control form-field-inline-label">
+        {{radio-button
+            name="owner_nickname"
+            value=me.nickname
+            checked=owner_nickname}}
+        {{owner-chip owner=me hide_link=true class="inline"}}
+      </label>
+    </div>
+    {{#each orgs as |org|}}
+    <div>
+      <label class="form-control form-field-inline-label">
+        {{radio-button
+            name="owner_nickname"
+            value=org.nickname
+            checked=owner_nickname}}
+        {{owner-chip owner=org hide_link=true class="inline"}}
+      </label>
+    </div>
+    {{/each}}
   </div>
 
   <div class="form-field">
